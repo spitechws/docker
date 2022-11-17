@@ -24,24 +24,25 @@ services:
       - ./../bbpl:/var/www/html/
 
   mysql:
-    build: './mysql/'
+    image: mariadb:latest
     restart: always
-    container_name: 'mysql'
     networks:
       - backend
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_DATABASE=bbpl_payments
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=1234
     ports:
       - "3306:3306"
     volumes:
-      - ./mysql/dbdata:/var/lib/mysql/  
-    environment:
-      MYSQL_DATABASE: bbpl_payments_local
-      MYSQL_USERNAME: root
-      MYSQL_PASSWORD: 1234
-      MYSQL_ROOT_PASSWORD: 1234
+      - ./mysql/dbdata:/var/lib/mariadb/init.d
 
   phpmyadmin:
-    image: phpmyadmin:latest
+    image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
+    depends_on:
+      - mysql
     networks:
       - backend
     environment:
@@ -54,7 +55,8 @@ services:
     ports:
       - 8081:80
     volumes:
-      - ./mysql/dbdata:/var/dbdata/  
+      - ./mysql/dbdata:/var/dbdata/
+      - ./phpmyadmin/config.inc.php:/etc/phpmyadmin/config.inc.php
 
 
 networks:
