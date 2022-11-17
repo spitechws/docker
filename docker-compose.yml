@@ -55,7 +55,8 @@ services:
     ports:
       - 8081:80
     volumes:
-      - ./mysql/dbdata:/var/dbdata/  
+      - ./mysql/dbdata:/var/dbdata/
+      - ./phpmyadmin/config.inc.php:/etc/phpmyadmin/config.inc.php
 
 
 networks:

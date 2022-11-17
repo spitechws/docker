@@ -122,7 +122,7 @@ for ($i = 1; isset($hosts[$i - 1]); $i++) {
       $cfg['Servers'][$i]['controlpass'] = $_ENV['PMA_CONTROLPASS'];
     }
     $cfg['Servers'][$i]['compress'] = false;
-    $cfg['Servers'][$i]['AllowNoPassword'] = false;
+    $cfg['Servers'][$i]['AllowNoPassword'] = true;
 }
 for ($i = 1; isset($sockets[$i - 1]); $i++) {
     $cfg['Servers'][$i]['socket'] = $sockets[$i - 1];
