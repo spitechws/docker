@@ -1,2 +1,2 @@
 <?php
-$cfg['blowfish_secret'] = 'RSMc6+9S9fq1vDOL(#{!6EWmbzPDgZ~y';
+$cfg['blowfish_secret'] = 'SlX_a^(S{NbPFT(yG}ll(rwu3Wv;H5N/';
