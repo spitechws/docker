@@ -16,7 +16,7 @@ RUN a2enmod rewrite
 # RUN docker-php-ext-install ...
 
 # Copy Apache configuration file allowing .htaccess files
-COPY ./apache2 /etc/
+COPY ./docker/apache2 /etc/
 
 # Copy all files into the /var/www/html
 COPY . /var/www/html
